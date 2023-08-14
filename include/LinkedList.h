@@ -1,4 +1,5 @@
 #pragma once
+
 class List {
 private: // 일반적으로 멤버 변수 선언
 	class Node {
