@@ -38,12 +38,12 @@ void List::Print(int index) const {
 	for (int count(0); count < index; count++) {	// 초기화 연산자
 		tempnode = tempnode->next;
 	}
-	cout << index << "번째 노드의 값은 " << tempnode->value << std::endl;
+	cout << index << " value is : " << tempnode->value << std::endl;
 }
 
 void List::Delete(const int index) {
 	auto* tempnode = headnode;
-	for (int count(0); count < index; count++) { // for문 안에 count 변수 선언 -> 가독성
+	for (int count=0; count < index; count++) { // for문 안에 count 변수 선언 -> 가독성
 		tempnode = tempnode->next;
 	}
 	tempnode->prev->next = tempnode->next;
