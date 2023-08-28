@@ -39,6 +39,5 @@ int main(){
     }
 
     rect1.ShowRecInfo();
-
     return 0;
 }
