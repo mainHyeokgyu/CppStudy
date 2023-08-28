@@ -3,7 +3,7 @@
 
 using namespace std;
 
-bool Rectangle::InitMembers(Point &ul, Point &lr){
+bool Rectangle::InitMembers(const Point &ul, const Point &lr){
     if (ul.GetX() > lr.GetX() || ul.GetY() > lr.GetY()){
         cout<<"잘못된 좌표 전달"<<endl;
         return false;        
@@ -13,7 +13,7 @@ bool Rectangle::InitMembers(Point &ul, Point &lr){
     return true;
 }
 
-void Rectangle::ShowRecInfo(){
+void Rectangle::ShowRecInfo() const{
     cout << "좌 상단: " << upLeft.GetX() << ", " << upLeft.GetY() <<endl;
     cout << "우 하단: " << lowRight.GetX() << ", " << lowRight.GetY() << endl;
 }

@@ -10,8 +10,8 @@ private:
     Point lowRight;
 
 public:
-    bool InitMembers(Point &ul, Point &lr);
-    void ShowRecInfo();
+    bool InitMembers(const Point &ul, const Point &lr);
+    void ShowRecInfo() const;
 };
 
 #endif

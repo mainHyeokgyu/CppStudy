@@ -13,11 +13,11 @@ bool Point::InitMembers(int xpos, int ypos){
     return true;
 }
 
-int Point::GetX(){
+int Point::GetX() const{
     return x;
 }
 
-int Point::GetY(){
+int Point::GetY() const{
     return y;
 }
 
