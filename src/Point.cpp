@@ -3,14 +3,14 @@
 
 using namespace std;
 
-bool Point::InitMembers(int xpos, int ypos){
-    if(xpos < 0 || xpos > 100 || ypos <0 || ypos > 100){
-        cout<<"잘못된 값 전달"<<endl;
-        return false;
-    }
+Point::Point(int xpos, int ypos){
+    // if(xpos < 0 || xpos > 100 || ypos <0 || ypos > 100){
+    //     cout<<"잘못된 값 전달"<<endl;
+    //     return false;
+    // }
     x = xpos;
     y = ypos;
-    return true;
+    // return true;
 }
 
 int Point::GetX() const{

@@ -17,27 +17,30 @@ using namespace std;
 //                      - 멤버함수 (InitMembers, ShowRecInfo)
 
 int main(){
-    Point pos1;
-    if(!pos1.InitMembers(-2, 4)){
-        cout<<"초기화 실패1"<<endl;
-    }
-    if(!pos1.InitMembers(2,4)){
-        cout<<"초기화 실패2"<<endl;
-    }
+    // Point pos1;
+    // if(!pos1.InitMembers(-2, 4)){
+    //     cout<<"초기화 실패1"<<endl;
+    // }
+    // if(!pos1.InitMembers(2,4)){
+    //     cout<<"초기화 실패2"<<endl;
+    // }
 
-    Point pos2;
-    if(!pos2.InitMembers(5,9)){
-        cout<<"초기화 실패3"<<endl;
-    }
+    // Point pos2;
+    // if(!pos2.InitMembers(5,9)){
+    //     cout<<"초기화 실패3"<<endl;
+    // }
 
-    Rectangle rect1;
-    if(!rect1.InitMembers(pos2, pos1)){
-        cout<<"초기화 실패4"<<endl;
-    }
-    if(!rect1.InitMembers(pos1, pos2)){
-        cout<<"초기화 실패5"<<endl;
-    }
-
+    // Rectangle rect1;
+    // if(!rect1.InitMembers(pos2, pos1)){
+    //     cout<<"초기화 실패4"<<endl;
+    // }
+    // if(!rect1.InitMembers(pos1, pos2)){
+    //     cout<<"초기화 실패5"<<endl;
+    // }
+    Rectangle rect1(1, 1, 5, 5);
     rect1.ShowRecInfo();
+    while(1){
+        
+    }
     return 0;
 }

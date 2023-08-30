@@ -1,0 +1,10 @@
+^C:\PORTFOLIO\CODING_STUDY\CH4\BUILD\CMAKEFILES\4B9462C925BBED5CDF63D740381E0463\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/portfolio/Coding_Study/CH4 -BC:/portfolio/Coding_Study/CH4/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/portfolio/Coding_Study/CH4/build/CH4.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
