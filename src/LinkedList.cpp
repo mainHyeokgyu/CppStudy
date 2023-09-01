@@ -1,9 +1,11 @@
 #include <iostream>
 #include "LinkedList.h"
+#include "Node.h"
 
 using namespace std;
 
 List::List() {
+	headnode = new Node();
 	headnode->next = nullptr;
 	headnode->prev = nullptr;
 	headnode->value = 0; //NULL(목적이 많음) 사용대신 0이 더 가독성에 좋음
@@ -21,7 +23,7 @@ void List::Insert(int value) {
 		node_num = 1;
 	}
 	else {
-		Node* newnode = new Node;
+		Node* newnode = new Node(0);
 		newnode->value = value;
 		
 		newnode->prev = headnode;

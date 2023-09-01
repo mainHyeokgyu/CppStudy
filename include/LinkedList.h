@@ -1,20 +1,16 @@
 #pragma once
 
+class Node; //전방선언
+
 class List {
 private: // 일반적으로 멤버 변수 선언
-	class Node {
-	public:
-		int value;
-		Node* next;
-		Node* prev; // class -> 접근못하게 할 경우 사용하는 예시가 많음, public으로 사용할 거라면 struct가 가독성에 더 좋음
-	};
-	Node* headnode = new Node;
-	int node_num; //header파일이 노출됨 cpp파일에서 초기화 하는것을 권장
-public: // 일반적으로 멤버 함수 선언
+	Node* headnode; //포인터 변수이므로 8Byte 인 것을 알고있으므로 가능 (Node headnode = value; 라면 Node가 몇 byte인지 몰라서 불가능)
+	int node_num;
+public:
 	List();
-	void Insert(const int value); //const 붙이나 안붙이나 차이 없음(call by value이기 때문)
-	void Print(const int index) const; //멤버 변수가 변하지 않는 상황에서는 const를 붙여주는 것이 좋다.(읽는사람의 가독성)
-	void Delete(const int index); //축약어 사용 x
+	void Insert(const int value);
+	void Print(const int index) const;
+	void Delete(const int index);
 };
 
 // 초기화 연산 > 대입 연산 -> 초기화 연산 적극적 사용
