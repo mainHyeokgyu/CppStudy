@@ -27,7 +27,7 @@ public:
 
 SoSimple SimpleFuncObj(SoSimple ob)
 {
-    cout<<"return before"<<endl;
+    cout<<"before return"<<endl;
     return ob;
 }
 
