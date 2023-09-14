@@ -108,21 +108,58 @@
 // 입력 : 첫 번째 줄에 A, B, C (1 ≤ A, B, C ≤ 10^12)이 공백을 사이에 두고 주어진다.
 // 출력 : A+B+C의 값을 출력한다.
 // ==========================================================================
+// #include <iostream>
+// using namespace std;
+
+// void plusfunc(long long num1, long long num2, long long num3);
+
+// int main(void)
+// {
+//     long long num1(0), num2(0), num3(0);
+//     cin>>num1>>num2>>num3;
+//     plusfunc(num1, num2, num3);
+
+//     return 0;
+// }
+
+// void plusfunc(long long num1, long long num2, long long num3)
+// {
+//     cout<<num1+num2+num3<<endl;
+// }
+
+// ==========================================================================
+// #10171
+// 링크 : https://www.acmicpc.net/problem/10171
+// 문제 : 아래 예제와 같이 고양이를 출력하시오.
+// 입력 : 없음.
+// 출력 : 고양이를 출력한다.
+// ==========================================================================
+// #include <iostream>
+// using namespace std;
+// int main(void)
+// {
+//     cout<<"\\    /\\"<<endl;
+//     cout<<" )  ( ')"<<endl;
+//     cout<<"(  /  )"<<endl;
+//     cout<<" \\(__)|"<<endl;
+//     return 0;
+// }
+
+// ==========================================================================
+// #10172
+// 링크 : https://www.acmicpc.net/problem/10172
+// 문제 : 아래 예제와 같이 고양이를 출력하시오.
+// 입력 : 없음.
+// 출력 : 개를 출력한다.
+// ==========================================================================
 #include <iostream>
 using namespace std;
 
-void plusfunc(long long num1, long long num2, long long num3);
-
 int main(void)
 {
-    long long num1(0), num2(0), num3(0);
-    cin>>num1>>num2>>num3;
-    plusfunc(num1, num2, num3);
-
-    return 0;
-}
-
-void plusfunc(long long num1, long long num2, long long num3)
-{
-    cout<<num1+num2+num3<<endl;
+    cout<<"|\\_/|"<<endl;
+    cout<<"|q p|   /}"<<endl;
+    cout<<"( 0 )\"\"\"\\"<<endl;
+    cout<<"|\"^\"`    |"<<endl;
+    cout<<"||_/=\\\\__|"<<endl;
 }
