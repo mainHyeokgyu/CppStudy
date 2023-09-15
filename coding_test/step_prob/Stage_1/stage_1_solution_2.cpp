@@ -162,4 +162,6 @@ int main(void)
     cout<<"( 0 )\"\"\"\\"<<endl;
     cout<<"|\"^\"`    |"<<endl;
     cout<<"||_/=\\\\__|"<<endl;
+    
+    return 0;
 }
