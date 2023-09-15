@@ -1,0 +1,10 @@
+^C:\PORTFOLIO\CODING_STUDY\CH06\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/portfolio/Coding_Study/CH06 -BC:/portfolio/Coding_Study/CH06/build --check-stamp-file C:/portfolio/Coding_Study/CH06/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
