@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Node.h"
 
+
 Node::Node(int my_value){
     value = my_value;
     next = nullptr;

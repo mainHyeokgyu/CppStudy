@@ -1,6 +1,12 @@
 # pragma once
 
-class Node {
+#if defined(Nodelib_EXPORTS)
+	#define Nodelib_API __declspec(dllexport)
+#else
+	#define Nodelib_API __declspec(dllimport)
+#endif
+
+class Nodelib_API Node {
 public:
     int value;
     Node* next;

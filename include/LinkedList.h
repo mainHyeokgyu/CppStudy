@@ -1,8 +1,14 @@
 #pragma once
 
+#if defined(LinkedListlib_EXPORTS)
+	#define LinkedListlib_API __declspec(dllexport) // 선언되어있다면 dll로 함수에 대한 정보를 export
+#else
+	#define LinkedListlib_API __declspec(dllimport) // 선언되어있지 않다면 dll로부터 함수 정보를 import
+#endif
+
 class Node; //전방선언
 
-class List {
+class LinkedListlib_API List { // LinkedListlib_API를 선언해줌으로써 export할 대상이라는 것을 명시해준다.
 private: // 일반적으로 멤버 변수 선언
 	Node* headnode; //포인터 변수이므로 8Byte 인 것을 알고있으므로 가능 (Node headnode = value; 라면 Node가 몇 byte인지 몰라서 불가능)
 	int node_num;

@@ -1,9 +1,10 @@
 #include <iostream>
 #include "Node.h"
 #include "LinkedList.h"
-#include "Node.cpp" 
-#include "LinkedList.cpp"
+// #include "Node.cpp" 
+// #include "LinkedList.cpp"
 using namespace std;
+
 
 int main() {
 	List test;
