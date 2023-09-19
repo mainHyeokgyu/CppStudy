@@ -1,12 +1,12 @@
 # pragma once
+#include "nodelib_export.h" //generate_export_header를 통해 line 3~7을 추가하지 않아도 include로 해결 가능
+// #if defined(Nodelib_EXPORTS)
+// 	#define Nodelib_API __declspec(dllexport)
+// #else
+// 	#define Nodelib_API __declspec(dllimport)
+// #endif
 
-#if defined(Nodelib_EXPORTS)
-	#define Nodelib_API __declspec(dllexport)
-#else
-	#define Nodelib_API __declspec(dllimport)
-#endif
-
-class Nodelib_API Node {
+class Node {
 public:
     int value;
     Node* next;
