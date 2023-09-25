@@ -26,7 +26,9 @@ INSTALL(TARGETS Nodelib LinkedListlib
         RUNTIME DESTINATION bin
         ARCHIVE DESTINATION lib # target의 .lib install/lib 디렉토리에 추가
         )
-
+INSTALL(FILES ${CMAKE_SOURCE_DIR}/include/Node.h
+              ${CMAKE_SOURCE_DIR}/include/LinkedList.h
+        DESTINATION include)
 
 # generate_export_header 사용해서 dll 빌드 (target_compile_definitions)
 # target_include_directories(Nodelib PRIVATE
