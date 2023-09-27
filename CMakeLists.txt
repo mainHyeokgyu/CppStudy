@@ -3,6 +3,12 @@ cmake_minimum_required(VERSION 3.12) # CMake는 버전에 따라 차이가 심�
 project("LINKED_TEST") # 프로젝트 명
 include(GenerateExportHeader) # generate_export_header를 사용하기 위함
 
+set(LINKEDLIST_HEADERS
+        "${CMAKE_BINARY_DIR}/linkedlistlib_export.h"
+        "include/LinkedList.h")
+set(NODE_HEADERS
+        "${CMAKE_BINARY_DIR}/nodelib_export.h"
+        "include/Node.h")
 add_library(Nodelib SHARED src/Node.cpp)
 add_library(LinkedListlib SHARED src/LinkedList.cpp) # LinkedList.cpp 파일을 library 파일(target)으로 생성
 
@@ -21,21 +27,23 @@ target_include_directories(LinkedListexe PUBLIC ${CMAKE_SOURCE_DIR}/include) # �
 target_link_libraries(LinkedListexe PUBLIC LinkedListlib) # executable과 library 파일 linking
 # target_link_libraries(LinkedListlib PUBLIC Nodelib)
 
+set_target_properties(LinkedListlib PROPERTIES PUBLIC_HEADER "${LINKEDLIST_HEADERS}")
+# set_target_properties(Nodelib PROPERTIES PUBLIC_HEADER "${NODE_HEADERS}")
+set_property(TARGET Nodelib PROPERTY PUBLIC_HEADER ${CMAKE_BINARY_DIR}/nodelib_export.h include/Node.h)
+
 INSTALL(TARGETS Nodelib LinkedListlib
         LIBRARY DESTINATION lib 
         RUNTIME DESTINATION bin
         ARCHIVE DESTINATION lib # target의 .lib install/lib 디렉토리에 추가
+        PUBLIC_HEADER DESTINATION include
         )
-INSTALL(FILES ${CMAKE_SOURCE_DIR}/include/Node.h
-              ${CMAKE_SOURCE_DIR}/include/LinkedList.h
-        DESTINATION include)
+# INSTALL(FILES ${CMAKE_SOURCE_DIR}/include/Node.h
+#               ${CMAKE_SOURCE_DIR}/include/LinkedList.h
+#               ${CMAKE_BINARY_DIR}/nodelib_export.h
+#               ${CMAKE_BINARY_DIR}/linkedlistlib_export.h
+#         DESTINATION include)
 
-# generate_export_header 사용해서 dll 빌드 (target_compile_definitions)
-# target_include_directories(Nodelib PRIVATE
-#                            ${CMAKE_SOURCE_DIR}/include
-#                            ${CMAKE_BINARY_DIR})
-# install 사용해서 install 폴더 안에서 bin, lib, include에 target(Nodelib, LinkedListlib 속성들 넣기)
-# set_target_properties
-# 추가적으로 시간이 남으면 install/lib, bin, include 만 가져와서 사용해보기(main.cpp새로 만들어서)
+
+
 # cmake --build . --config Release
 # cmake --install . --prefix install
