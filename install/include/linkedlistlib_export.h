@@ -1,0 +1,42 @@
+
+#ifndef LINKEDLISTLIB_EXPORT_H
+#define LINKEDLISTLIB_EXPORT_H
+
+#ifdef LINKEDLISTLIB_STATIC_DEFINE
+#  define LINKEDLISTLIB_EXPORT
+#  define LINKEDLISTLIB_NO_EXPORT
+#else
+#  ifndef LINKEDLISTLIB_EXPORT
+#    ifdef LinkedListlib_EXPORTS
+        /* We are building this library */
+#      define LINKEDLISTLIB_EXPORT __declspec(dllexport)
+#    else
+        /* We are using this library */
+#      define LINKEDLISTLIB_EXPORT __declspec(dllimport)
+#    endif
+#  endif
+
+#  ifndef LINKEDLISTLIB_NO_EXPORT
+#    define LINKEDLISTLIB_NO_EXPORT 
+#  endif
+#endif
+
+#ifndef LINKEDLISTLIB_DEPRECATED
+#  define LINKEDLISTLIB_DEPRECATED __declspec(deprecated)
+#endif
+
+#ifndef LINKEDLISTLIB_DEPRECATED_EXPORT
+#  define LINKEDLISTLIB_DEPRECATED_EXPORT LINKEDLISTLIB_EXPORT LINKEDLISTLIB_DEPRECATED
+#endif
+
+#ifndef LINKEDLISTLIB_DEPRECATED_NO_EXPORT
+#  define LINKEDLISTLIB_DEPRECATED_NO_EXPORT LINKEDLISTLIB_NO_EXPORT LINKEDLISTLIB_DEPRECATED
+#endif
+
+#if 0 /* DEFINE_NO_DEPRECATED */
+#  ifndef LINKEDLISTLIB_NO_DEPRECATED
+#    define LINKEDLISTLIB_NO_DEPRECATED
+#  endif
+#endif
+
+#endif /* LINKEDLISTLIB_EXPORT_H */

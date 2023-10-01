@@ -1,49 +1,44 @@
-cmake_minimum_required(VERSION 3.12) # CMake는 버전에 따라 차이가 심해 명시적으로 선언
+cmake_minimum_required(VERSION 3.12)
 
-project("LINKED_TEST") # 프로젝트 명
-include(GenerateExportHeader) # generate_export_header를 사용하기 위함
+project("LINKED_TEST")
 
-set(LINKEDLIST_HEADERS
-        "${CMAKE_BINARY_DIR}/linkedlistlib_export.h"
-        "include/LinkedList.h")
-set(NODE_HEADERS
-        "${CMAKE_BINARY_DIR}/nodelib_export.h"
-        "include/Node.h")
-add_library(Nodelib SHARED src/Node.cpp)
-add_library(LinkedListlib SHARED src/LinkedList.cpp) # LinkedList.cpp 파일을 library 파일(target)으로 생성
+add_library(Nodelib SHARED IMPORTED)
+add_library(LinkedListlib SHARED IMPORTED)
 
-target_include_directories(Nodelib PUBLIC ${CMAKE_SOURCE_DIR}/include ${CMAKE_BINARY_DIR})
-target_include_directories(LinkedListlib PUBLIC ${CMAKE_SOURCE_DIR}/include ${CMAKE_BINARY_DIR}) # library 파일(target)이 헤더파일을 찾기 위한 경로를 지정
-# include_directories(include) # build 되는 executable에 해당 경로를 include 하여 빌드 하도록 함
+# target을 만들어서 Nodelib.lib, Nodelib.dll파일을 정의해주는 방식
+set_target_properties(Nodelib PROPERTIES
+    IMPORTED_CONFIGURATIONS        "RELEASE"
+    IMPORTED_IMPLIB_RELEASE ${CMAKE_SOURCE_DIR}/install/lib/Nodelib.lib
+    IMPORTED_LOCATION_RELEASE ${CMAKE_SOURCE_DIR}/install/bin/Nodelib.dll)
+    # 빌드할때는 dll파일을 참조하여 실행파일을 생성한다.
+    # 그러나, exe파일만 별도로 실행할때 .dll파일이 필요하므로 dll파일을 실행파일과
+    # 같은 위치에 넣어주는 작업이 별도로 필요하다.
+set_target_properties(LinkedListlib PROPERTIES
+    IMPORTED_CONFIGURATIONS        "RELEASE"
+    IMPORTED_IMPLIB_RELEASE ${CMAKE_SOURCE_DIR}/install/lib/LinkedListlib.lib
+    IMPORTED_LOCATION_RELEASE ${CMAKE_SOURCE_DIR}/install/bin/LinkedListlib.dll)
 
-generate_export_header(Nodelib) # Nodelib target에대한 export header를 추가해줌 (/build에 생성됨)
-generate_export_header(LinkedListlib)
+target_include_directories(Nodelib INTERFACE ${CMAKE_SOURCE_DIR}/install/include)
+target_include_directories(LinkedListlib INTERFACE ${CMAKE_SOURCE_DIR}/install/include)
 
-add_executable(LinkedListexe src/main.cpp) # 필요한 source 파일을 추가하여 실행파일(target) 생성
+add_executable(LinkedListexe src/main.cpp)
+target_include_directories(LinkedListexe PUBLIC ${CMAKE_SOURCE_DIR}/include)
 
-# target_compile_definitions(Nodelib PUBLIC NODELIB_EXPORT)
-target_include_directories(LinkedListexe PUBLIC ${CMAKE_SOURCE_DIR}/include) # 실행파일(target)이 헤더파일을 찾기 위한 경로를 지정(include_directories보다 효율적)
 
-target_link_libraries(LinkedListexe PUBLIC LinkedListlib) # executable과 library 파일 linking
-# target_link_libraries(LinkedListlib PUBLIC Nodelib)
-
-set_target_properties(LinkedListlib PROPERTIES PUBLIC_HEADER "${LINKEDLIST_HEADERS}")
-# set_target_properties(Nodelib PROPERTIES PUBLIC_HEADER "${NODE_HEADERS}")
-set_property(TARGET Nodelib PROPERTY PUBLIC_HEADER ${CMAKE_BINARY_DIR}/nodelib_export.h include/Node.h)
-
-INSTALL(TARGETS Nodelib LinkedListlib
-        LIBRARY DESTINATION lib 
-        RUNTIME DESTINATION bin
-        ARCHIVE DESTINATION lib # target의 .lib install/lib 디렉토리에 추가
-        PUBLIC_HEADER DESTINATION include
-        )
-# INSTALL(FILES ${CMAKE_SOURCE_DIR}/include/Node.h
-#               ${CMAKE_SOURCE_DIR}/include/LinkedList.h
-#               ${CMAKE_BINARY_DIR}/nodelib_export.h
-#               ${CMAKE_BINARY_DIR}/linkedlistlib_export.h
-#         DESTINATION include)
+target_link_libraries(LinkedListexe PUBLIC Nodelib)
+target_link_libraries(LinkedListexe PUBLIC LinkedListlib)
 
 
 
-# cmake --build . --config Release
-# cmake --install . --prefix install
+# 해당 헤더, lib, dll파일을 linking 시킬 수 있도록 위치를 알려줘야함
+# cmake_minimum_required(VERSION 3.12)
+
+# project(LINKED_TEST)
+
+# add_executable(test1 src/main.cpp)
+
+# target_link_directories(test1 PRIVATE install/lib)
+
+# target_include_directories(test1 PRIVATE install/include)
+# target_link_libraries(test1 PRIVATE Nodelib LinkedListlib)
+
