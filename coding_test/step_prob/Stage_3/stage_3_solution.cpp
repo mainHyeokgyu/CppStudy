@@ -41,7 +41,7 @@ using namespace std;
 void Add(int n)
 {
     int* arr_A = new int[n];
-    int* arr_B = new int[n];
+    int* arr_B = new int[n]; //동적할당
     for(int i=0; i<n; i++) 
     {
         cin>>arr_A[i]>>arr_B[i];
