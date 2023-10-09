@@ -40,9 +40,9 @@ using namespace std;
 
 void Add(int n)
 {
-    int arr_A[5];
-    int arr_B[5];
-    for(int i=0; i<n; i++)
+    int* arr_A = new int[n];
+    int* arr_B = new int[n];
+    for(int i=0; i<n; i++) 
     {
         cin>>arr_A[i]>>arr_B[i];
     }
@@ -50,6 +50,8 @@ void Add(int n)
     {
         cout<<arr_A[i]+arr_B[i]<<endl;
     }
+    delete[] arr_A;
+    delete[] arr_B;
 }
 
 int main(void)
