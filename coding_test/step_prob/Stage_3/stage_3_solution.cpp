@@ -34,31 +34,58 @@
 //        각 테스트 케이스는 한 줄로 이루어져 있으며, 각 줄에 A와 B가 주어진다. (0 < A, B < 10)
 // 출력 : 각 테스트 케이스마다 A+B를 출력한다.
 // ==========================================================================
-#include <iostream>
+// #include <iostream>
 
+// using namespace std;
+
+// void Add(int n)
+// {
+//     int* arr_A = new int[n];
+//     int* arr_B = new int[n]; //동적할당
+//     for(int i=0; i<n; i++) 
+//     {
+//         cin>>arr_A[i]>>arr_B[i];
+//     }
+//     for(int i=0; i<n; i++)
+//     {
+//         cout<<arr_A[i]+arr_B[i]<<endl;
+//     }
+//     delete[] arr_A;
+//     delete[] arr_B;
+// }
+
+// int main(void)
+// {
+//     int n(0);
+//     cin>>n;
+//     Add(n);
+
+//     return 0;
+// }
+
+// ==========================================================================
+// #8393
+// 링크 : https://www.acmicpc.net/problem/8393
+// 문제 : n이 주어졌을 때, 1부터 n까지 합을 구하는 프로그램을 작성하시오.
+// 입력 : 첫째 줄에 n (1 ≤ n ≤ 10,000)이 주어진다.
+// 출력 : 1부터 n까지 합을 출력한다.
+// ==========================================================================
+#include <iostream>
 using namespace std;
 
-void Add(int n)
+void sum(int n)
 {
-    int* arr_A = new int[n];
-    int* arr_B = new int[n]; //동적할당
-    for(int i=0; i<n; i++) 
+    int sum(0);
+    for(int i=1;i<=n;i++)
     {
-        cin>>arr_A[i]>>arr_B[i];
+        sum+=i;
     }
-    for(int i=0; i<n; i++)
-    {
-        cout<<arr_A[i]+arr_B[i]<<endl;
-    }
-    delete[] arr_A;
-    delete[] arr_B;
+    cout<<sum;
 }
 
 int main(void)
 {
     int n(0);
     cin>>n;
-    Add(n);
-
-    return 0;
+    sum(n);
 }
