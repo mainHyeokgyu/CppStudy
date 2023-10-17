@@ -160,18 +160,196 @@
 // 입력 : 첫 번째 줄에는 문제의 정수 N이 주어진다. (4< N <10,000; N은 4의 배수)
 // 출력 : 혜아가 N바이트 정수까지 저장할 수 있다고 생각하는 정수 자료형의 이름을 출력하여라.
 // ==========================================================================
+// #include <iostream>
+// using namespace std;
+
+// int main(void)
+// {
+//     int n(0);
+//     cin>>n;
+//     for(int i=0;i<n/4;i++)
+//     {
+//         cout<<"long ";
+//     }
+//     cout<<"int";
+
+//     return 0;
+// }
+
+// ==========================================================================
+// #15552
+// 링크 : https://www.acmicpc.net/problem/15552
+// 문제 : 본격적으로 for문 문제를 풀기 전에 주의해야 할 점이 있다. 입출력 방식이 느리면 여러 줄을 입력받거나 출력할 때
+//        시간초과가 날 수 있다는 점이다. C++을 사용하고 있고 cin/cout을 사용하고자 한다면,
+//        cin.tie(NULL)과 sync_with_stdio(false)를 둘 다 적용해 주고, endl 대신 개행문자(\n)를 쓰자.
+//        단, 이렇게 하면 더 이상 scanf/printf/puts/getchar/putchar 등 C의 입출력 방식을 사용하면 안 된다.
+//        또한 입력과 출력 스트림은 별개이므로, 테스트케이스를 전부 입력받아서 저장한 뒤 전부 출력할 필요는 없다.
+//        테스트케이스를 하나 받은 뒤 하나 출력해도 된다.
+// 입력 : 첫 줄에 테스트케이스의 개수 T가 주어진다. T는 최대 1,000,000이다. 다음 T줄에는 각각 두 정수 A와 B가 주어진다. A와 B는 1 이상, 1,000 이하이다.
+// 출력 : 각 테스트케이스마다 A+B를 한 줄에 하나씩 순서대로 출력한다.
+// ==========================================================================
+// #include <iostream>
+
+// using namespace std;
+
+// void add(int n);
+
+// int main(void)
+// {
+//     cin.tie(NULL);
+//     ios_base::sync_with_stdio(false);
+
+//     int n(0);
+//     cin>>n;
+//     add(n);
+
+//     return 0;
+    
+// }
+
+// void add(int n)
+// {
+//     int* A=new int[n];
+//     int* B=new int[n];
+//     int* result=new int[n];
+//     int temp_A(0), temp_B(0);
+//     for(int i=0; i<n; i++)
+//     {
+//         cin>>temp_A>>temp_B;
+//         A[i]=temp_A;
+//         B[i]=temp_B;
+//         result[i]=A[i]+B[i];
+//     }
+//     for(int i=0; i<n; i++)
+//     {
+//         cout<<result[i]<<"\n";
+//     }
+//     delete[] A;
+//     delete[] B;
+//     delete[] result;
+// }
+
+// ==========================================================================
+// #11021
+// 링크 : https://www.acmicpc.net/problem/11021
+// 문제 : 두 정수 A와 B를 입력받은 다음, A+B를 출력하는 프로그램을 작성하시오.
+// 입력 : 첫째 줄에 테스트 케이스의 개수 T가 주어진다.
+//        각 테스트 케이스는 한 줄로 이루어져 있으며, 각 줄에 A와 B가 주어진다. (0 < A, B < 10)
+// 출력 : 각 테스트 케이스마다 "Case #x: "를 출력한 다음, A+B를 출력한다. 테스트 케이스 번호는 1부터 시작한다.
+// ==========================================================================
+// #include <iostream>
+
+// using namespace std;
+
+// void add(int n);
+
+// int main(void)
+// {
+//     cin.tie(NULL);
+//     ios_base::sync_with_stdio(false);
+
+//     int n(0);
+//     cin>>n;
+//     add(n);
+
+//     return 0;
+    
+// }
+
+// void add(int n)
+// {
+//     int* A=new int[n];
+//     int* B=new int[n];
+//     int* result=new int[n];
+//     int temp_A(0), temp_B(0);
+//     for(int i=0; i<n; i++)
+//     {
+//         cin>>temp_A>>temp_B;
+//         A[i]=temp_A;
+//         B[i]=temp_B;
+//         result[i]=A[i]+B[i];
+//     }
+//     for(int i=0; i<n; i++)
+//     {
+//         cout<<"Case #"<<i+1<<": "<<result[i]<<"\n";
+//     }
+//     delete[] A;
+//     delete[] B;
+//     delete[] result;
+// }
+
+// ==========================================================================
+// #11022
+// 링크 : https://www.acmicpc.net/problem/11022
+// 문제 : 두 정수 A와 B를 입력받은 다음, A+B를 출력하는 프로그램을 작성하시오.
+// 입력 : 첫째 줄에 테스트 케이스의 개수 T가 주어진다.
+//        각 테스트 케이스는 한 줄로 이루어져 있으며, 각 줄에 A와 B가 주어진다. (0 < A, B < 10)
+// 출력 : 각 테스트 케이스마다 "Case #x: A + B = C" 형식으로 출력한다.
+//        x는 테스트 케이스 번호이고 1부터 시작하며, C는 A+B이다.
+// ==========================================================================
+// #include <iostream>
+
+// using namespace std;
+
+// void add(int n);
+
+// int main(void)
+// {
+//     cin.tie(NULL);
+//     ios_base::sync_with_stdio(false);
+
+//     int n(0);
+//     cin>>n;
+//     add(n);
+
+//     return 0;
+    
+// }
+
+// void add(int n)
+// {
+//     int* A=new int[n];
+//     int* B=new int[n];
+//     int* result=new int[n];
+//     int temp_A(0), temp_B(0);
+//     for(int i=0; i<n; i++)
+//     {
+//         cin>>temp_A>>temp_B;
+//         A[i]=temp_A;
+//         B[i]=temp_B;
+//         result[i]=A[i]+B[i];
+//     }
+//     for(int i=0; i<n; i++)
+//     {
+//         cout<<"Case #"<<i+1<<": "<<A[i]<<" + "<<B[i]<<" = "<<result[i]<<"\n";
+//     }
+//     delete[] A;
+//     delete[] B;
+//     delete[] result;
+// }
+
+// ==========================================================================
+// #2438
+// 링크 : https://www.acmicpc.net/problem/2438
+// 문제 : 첫째 줄에는 별 1개, 둘째 줄에는 별 2개, N번째 줄에는 별 N개를 찍는 문제
+// 입력 : 첫째 줄에 N(1 ≤ N ≤ 100)이 주어진다.
+// 출력 : 첫째 줄부터 N번째 줄까지 차례대로 별을 출력한다.
+// ==========================================================================
 #include <iostream>
+
 using namespace std;
 
 int main(void)
 {
     int n(0);
     cin>>n;
-    for(int i=0;i<n/4;i++)
+    for(int i=0;i<n;i++)
     {
-        cout<<"long ";
+        for(int j=0;j<=i;j++)
+        {
+            cout<<"*";
+        }
+        cout<<"\n";
     }
-    cout<<"int";
-
     return 0;
 }
