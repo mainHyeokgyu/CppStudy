@@ -295,40 +295,155 @@
 //        이 숫자는 1,000보다 작거나 같고, 음이 아닌 정수이다.
 // 출력 : 첫째 줄에, 42로 나누었을 때, 서로 다른 나머지가 몇 개 있는지 출력한다.
 // ==========================================================================
+// #include <iostream>
+
+// using namespace std;
+
+// int main(void)
+// {
+//     int arr[10];
+//     int num(0), total(1), remain(0);
+//     for(int i=0; i<10; i++)
+//     {
+//         cin>>num;
+//         remain = num%42;
+//         if(total==1)
+//         {
+//             arr[total-1] = remain;
+//             total++;
+//         }
+//         else
+//         {
+//             for(int j=0; j<total-1; j++)
+//             {
+//                 if(arr[j]==remain)
+//                 {
+//                     break;
+//                 }
+//                 if(j==total-2)
+//                 {
+//                     arr[total-1]=remain;
+//                     total++;
+//                     break;
+//                 }
+//             }
+//         }
+//     }
+//     cout<<total-1<<endl;
+//     return 0;
+// }
+
+// ==========================================================================
+// #10811
+// 링크 : https://www.acmicpc.net/problem/10811
+// 문제 : 도현이는 바구니를 총 N개 가지고 있고, 각각의 바구니에는 1번부터 N번까지 번호가
+//        순서대로 적혀져 있다. 바구니는 일렬로 놓여져 있고, 가장 왼쪽 바구니를 1번째 바구니,
+//        그 다음 바구니를 2번째 바구니, ..., 가장 오른쪽 바구니를 N번째 바구니라고 부른다. 
+//        도현이는 앞으로 M번 바구니의 순서를 역순으로 만들려고 한다. 도현이는 한 번 순서를
+//        역순으로 바꿀 때, 순서를 역순으로 만들 범위를 정하고, 그 범위에 들어있는 바구니의
+//        순서를 역순으로 만든다. 바구니의 순서를 어떻게 바꿀지 주어졌을 때, M번 바구니의 순서를
+//        역순으로 만든 다음, 바구니에 적혀있는 번호를 가장 왼쪽 바구니부터 출력하는 프로그램을
+//        작성하시오.
+// 입력 : 첫째 줄에 N (1 ≤ N ≤ 100)과 M (1 ≤ M ≤ 100)이 주어진다.
+//        둘째 줄부터 M개의 줄에는 바구니의 순서를 역순으로 만드는 방법이 주어진다.
+//        방법은 i j로 나타내고, 왼쪽으로부터 i번째 바구니부터 j번째 바구니의 순서를 역순으로
+//        만든다는 뜻이다. (1 ≤ i ≤ j ≤ N)
+//        도현이는 입력으로 주어진 순서대로 바구니의 순서를 바꾼다.
+// 출력 : 모든 순서를 바꾼 다음에, 가장 왼쪽에 있는 바구니부터 바구니에 적혀있는 순서를
+//        공백으로 구분해 출력한다.
+// ==========================================================================
+// #include <iostream>
+
+// using namespace std;
+
+// int main(void)
+// {
+//     int n(0), m(0), left(0), right(0), temp(0);
+//     cin>>n>>m;
+//     int* arr = new int[n];
+
+//     for(int i=0; i<n; i++)
+//     {
+//         arr[i]=i+1;
+//     }
+//     for(int i=0; i<m; i++)
+//     {
+//         cin>>left>>right;
+//         int *temp= new int[right-left+1];
+//         for(int j=0; j<=(right-left); j++)
+//         {
+//             temp[j]=arr[right-j-1];
+//         }
+//         int count(0);
+//         for(int k=left-1; k<right; k++)
+//         {
+//             arr[k]=temp[count];
+//             count++;
+//         }
+//         delete[] temp;
+//     }
+//     for(int i=0; i<n; i++)
+//     {
+//         cout<<arr[i]<<" ";
+//     }
+//     cout<<endl;
+//     delete[] arr;
+//     return 0;
+// }
+
+// ==========================================================================
+// #1546
+// 링크 : https://www.acmicpc.net/problem/1546
+// 문제 : 세준이는 기말고사를 망쳤다. 세준이는 점수를 조작해서 집에 가져가기로 했다.
+//        일단 세준이는 자기 점수 중에 최댓값을 골랐다. 이 값을 M이라고 한다. 그리고 나서
+//        모든 점수를 점수/M*100으로 고쳤다. 예를 들어, 세준이의 최고점이 70이고, 수학점수가
+//        50이었으면 수학점수는 50/70*100이 되어 71.43점이 된다. 세준이의 성적을 위의 방법대로
+//        새로 계산했을 때, 새로운 평균을 구하는 프로그램을 작성하시오.
+// 입력 : 첫째 줄에 시험 본 과목의 개수 N이 주어진다. 이 값은 1000보다 작거나 같다.
+//        둘째 줄에 세준이의 현재 성적이 주어진다. 이 값은 100보다 작거나 같은 음이 아닌 정수이고,
+//        적어도 하나의 값은 0보다 크다.
+// 출력 : 첫째 줄에 새로운 평균을 출력한다. 실제 정답과 출력값의 절대오차 또는 상대오차가
+//        10^(-2) 이하이면 정답이다.
+// ==========================================================================
 #include <iostream>
 
 using namespace std;
 
 int main(void)
 {
-    int arr[10];
-    int num(0), total(1), remain(0);
-    for(int i=0; i<10; i++)
+    int num(0);
+    cin>>num;
+    float *score = new float[num];
+    float temp_score(0.), max_score(0.), total_score(0.);
+    int max_index(0);
+    for(int i=0; i<num; i++)
     {
-        cin>>num;
-        remain = num%42;
-        if(total==1)
+        cin>>temp_score;
+        score[i]=temp_score;
+
+        if(temp_score>max_score)
         {
-            arr[total-1] = remain;
-            total++;
-        }
-        else
-        {
-            for(int j=0; j<total-1; j++)
-            {
-                if(arr[j]==remain)
-                {
-                    break;
-                }
-                if(j==total-2)
-                {
-                    arr[total-1]=remain;
-                    total++;
-                    break;
-                }
-            }
+            max_score = temp_score;
+            max_index = i;
         }
     }
-    cout<<total-1<<endl;
+    cout<<"max score: "<<max_score<<endl;
+    cout<<"max index: "<<max_index<<endl;
+    for(int i=0; i<num; i++)
+    {
+
+        score[i] = score[i] / max_score * 100;
+
+        cout<<"score["<<i<<"]: "<<score[i]<<endl;
+    }
+    
+    for(int i=0; i<num; i++)
+    {
+        total_score += score[i];
+    }
+
+    cout<<total_score / num<<endl;
+
+    delete[] score;
     return 0;
 }
