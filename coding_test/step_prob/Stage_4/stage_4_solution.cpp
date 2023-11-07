@@ -427,14 +427,14 @@ int main(void)
             max_index = i;
         }
     }
-    cout<<"max score: "<<max_score<<endl;
-    cout<<"max index: "<<max_index<<endl;
+    // cout<<"max score: "<<max_score<<endl;
+    // cout<<"max index: "<<max_index<<endl;
     for(int i=0; i<num; i++)
     {
 
         score[i] = score[i] / max_score * 100;
 
-        cout<<"score["<<i<<"]: "<<score[i]<<endl;
+        // cout<<"score["<<i<<"]: "<<score[i]<<endl;
     }
     
     for(int i=0; i<num; i++)
