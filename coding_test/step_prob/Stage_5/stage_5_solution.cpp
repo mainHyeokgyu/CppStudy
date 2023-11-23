@@ -96,22 +96,49 @@
 // 입력 : 첫째 줄에 숫자의 개수 N (1 ≤ N ≤ 100)이 주어진다. 둘째 줄에 숫자 N개가 공백없이 주어진다.
 // 출력 : 입력으로 주어진 숫자 N개의 합을 출력한다.
 // ==========================================================================
-#include <iostream>
+// #include <iostream>
 
+// using namespace std;
+
+// int main()
+// {
+//     int num(0), sum(0);
+//     char ch;
+
+//     cin>>num;
+
+//     for(int i=0; i<num; i++)
+//     {
+//         cin>>ch;
+//         sum += ch-48; // 1 ascii code = 49
+//     }
+//     cout<<sum<<endl;
+//     return 0;
+// }
+
+// ==========================================================================
+// #11718
+// 링크 : https://www.acmicpc.net/problem/11718
+// 문제 : 입력 받은 대로 출력하는 프로그램을 작성하시오.
+// 입력 : 입력이 주어진다. 입력은 최대 100줄로 이루어져 있고, 알파벳 소문자, 대문자, 공백, 숫자로만
+//        이루어져 있다. 각 줄은 100글자를 넘지 않으며, 빈 줄은 주어지지 않는다.
+//        또, 각 줄은 공백으로 시작하지 않고, 공백으로 끝나지 않는다.
+// 출력 : 입력받은 그대로 출력한다.
+// ==========================================================================
+#include <iostream>
 using namespace std;
 
-int main()
+int main(void)
 {
-    int num(0), sum(0);
-    char ch;
-
-    cin>>num;
-
-    for(int i=0; i<num; i++)
+    string str;
+    while(true)
     {
-        cin>>ch;
-        sum += ch-48; // 1 ascii code = 49
+        getline(cin, str);
+        if(std::cin.eof()==1)
+        {
+            break;
+        }
+        std::cout<<str<<"\n";
     }
-    cout<<sum<<endl;
     return 0;
 }
